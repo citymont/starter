@@ -1,3 +1,3 @@
 Front Starter Pack
 =======
-$ make <project>
+$ make.sh PROJECT_NAME
