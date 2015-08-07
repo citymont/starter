@@ -161,7 +161,7 @@ function GRUNT_BODY
 
         watch: {
           js: {
-            files: ['assets/js/*.js'],
+            files: ['assets/js/main.js'],
             tasks: ['uglify:dist'],
             options: {
               livereload: true,
