@@ -16,7 +16,7 @@ function ACTIVE_BODY
  * $PROJECT_NAME
  *
  * MIT licensed
- * Copyright (C) 2014 Thibaut Villemont, http://moderntree.net
+ * Copyright (C) 2015 Thibaut Villemont, http://moderntree.net
  */
 "
 }
@@ -78,6 +78,7 @@ function PACKAGE_BODY
         "grunt-contrib-qunit": "~0.4.0",
         "grunt-contrib-watch": "~0.5.3",
         "grunt-contrib-concat": "~0.3.0",
+        "grunt-contrib-connect": "^0.11.2",
         "grunt-recess": "~0.5.0"
     }
 }'
@@ -148,6 +149,15 @@ function GRUNT_BODY
           }
         },
 
+        connect: {
+          server: {
+            options: {
+              port: 8081,
+              hostname: 'localhost'
+            }
+          }
+        },
+
 
         watch: {
           js: {
@@ -173,9 +183,11 @@ function GRUNT_BODY
       grunt.loadNpmTasks('grunt-contrib-uglify');
       grunt.loadNpmTasks('grunt-contrib-watch');
       grunt.loadNpmTasks('grunt-recess');
+      grunt.loadNpmTasks('grunt-contrib-connect');
 
       // By default, lint and run all tests.
       grunt.registerTask('default', ['concat','uglify','recess']);
+      grunt.registerTask('serve', ['connect', 'watch']);
 
     };"
 }
